@@ -1,4 +1,4 @@
-# Hyperledger Composer Install Scripts
+# Hyperledger Composer Install Scripts for Oracle Linux
 
 This repository contains a number of helper scripts to install and start up a Hyperledger Fabric v1.0 network for development purposes. You can use the Hyperledger Fabric network created by these scripts to quickly deploy Blockchain business networks built using Hyperledger Composer, and test applications that depend on a running network.
 
@@ -6,7 +6,7 @@ This repository contains a number of helper scripts to install and start up a Hy
 
 ## Pre-Requisites
 
-VM with Oracle Linux 7
+Oracle Linux 7
 
 ## Step 1: Pre-install Hyperledger Composer
 

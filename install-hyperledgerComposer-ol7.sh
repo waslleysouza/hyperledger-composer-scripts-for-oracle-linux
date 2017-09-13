@@ -3,7 +3,7 @@
 #### Written by: Waslley Souza - waslley.souza@oracle.com on sept/2017
 
 if [ "$LOGNAME" != "oracle" ]; then
-	echo "ol7_hyperledger_dev_setupAsOracle.sh must run as oracle!"
+	echo "hyperledger_composer_dev-oraclelinux7.sh must run as oracle!"
 	exit
 fi
 
@@ -11,25 +11,6 @@ fi
 
 ## Variables
 #declare CHANNEL_ID="mychannel"
-
-echo "###########################################################################################"
-echo "## Dependencies                                                                          ##"
-echo "###########################################################################################"
-
-echo "Installing NVM"
-curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-source ~/.bashrc
-nvm --version
-
-echo "Installing nodeJS"
-nvm install --lts
-nvm use --lts
-nvm alias default 'lts/*'
-
-echo "Installing NPM"
-npm install npm@latest -g
-source ~/.bashrc
 
 echo "###########################################################################################"
 echo "## Hyperledger Composer                                                                  ##"
@@ -60,12 +41,13 @@ cd basic-sample-network
 npm install
 
 echo "Starting Composer-Playground"
-cd ~
 composer-playground &
 
-wait 5
+wait 10
 
-echo "These are good tutorials to getting started:"
-echo "** https://hyperledger.github.io/composer/tutorials/developer-guide.html"
-echo "** https://blog.imaginea.com/hyperledger-chennai-meetup%E2%80%8A-%E2%80%8Ajuly%E2%80%8A-%E2%80%8Aworkshop-on-hyperledger-composer-with-wavemaker/"
 echo "Hyperledger was installed successfully!"
+echo "*************************************************************"
+echo "* These are good tutorials to getting started: "
+echo "* - https://hyperledger.github.io/composer/tutorials/developer-guide.html"
+echo "* - https://blog.imaginea.com/hyperledger-chennai-meetup%E2%80%8A-%E2%80%8Ajuly%E2%80%8A-%E2%80%8Aworkshop-on-hyperledger-composer-with-wavemaker/"
+echo "*************************************************************"

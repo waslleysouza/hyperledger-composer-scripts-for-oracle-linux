@@ -1,4 +1,4 @@
-# Hyperledger Fabric Install Scripts
+# Hyperledger Composer Install Scripts
 
 This repository contains a number of helper scripts to install and start up a Hyperledger Fabric v1.0 network for development purposes. You can use the Hyperledger Fabric network created by these scripts to quickly deploy Blockchain business networks built using Hyperledger Composer, and test applications that depend on a running network.
 
@@ -6,46 +6,45 @@ This repository contains a number of helper scripts to install and start up a Hy
 
 ## Pre-Requisites
 
-Oracle Linux 7 VM
+VM with Oracle Linux 7
 
-## Step 1: Pre-install Hyperledger Fabric
+## Step 1: Pre-install Hyperledger Composer
 
-Log in as user root, copy the file "ol7_hyperledger_setupAsRoot.sh" to your VM and execute:
-
-```
-$ chmod +x ./ol7_hyperledger_setupAsRoot.sh
-$ ./ol7_hyperledger_setupAsRoot.sh
-``` 
-
-## Step 2: Install Hyperledger Fabric
-
-After reboot, log in as user oracle, copy the file "ol7_hyperledger_dev_setupAsOracle.sh" to your VM and execute:
+Log in as user root, copy the file "install-prereqs-ol7.sh" to your VM and execute:
 
 ```
-$ chmod +x ./ol7_hyperledger_dev_setupAsOracle.sh
-$ ./ol7_hyperledger_dev_setupAsOracle.sh
+$ chmod +x ./install-prereqs-ol7.sh
+$ ./install-prereqs-ol7.sh
+$ reboot
 ``` 
 
-## Step 3: Start Hyperledger Fabric
+## Step 2: Install Hyperledger Composer
 
-Hyperledger Fabric is started automatically after installation.
-You need to execute this step after start your VM.
-
-Log in as user oracle, copy the file "ol7_hyperledger_dev_start.sh" to your VM and execute:
+After reboot, log in as user oracle, copy the file "install-hyperledgerComposer-ol7.sh" to your VM and execute:
 
 ```
-$ chmod +x ./ol7_hyperledger_dev_start.sh
-$ ./ol7_hyperledger_dev_start.sh
+$ chmod +x ./install-hyperledgerComposer-ol7.sh
+$ ./install-hyperledgerComposer-ol7.sh
 ``` 
 
-## Step 4: Stop Hyperledger Fabric
+## Step 3: Start Hyperledger Composer
 
-Hyperledger Fabric is started automatically after installation.
+Hyperledger Composer is started automatically after installation, but you need to execute this step after start/restart your VM.
+
+Log in as user oracle, copy the file "start-hyperledgerComposer-ol7.sh" to your VM and execute:
+
+```
+$ chmod +x ./start-hyperledgerComposer-ol7.sh
+$ ./start-hyperledgerComposer-ol7.sh
+``` 
+
+## Step 4: Stop Hyperledger Composer
+
 You need to execute this step before stop your VM.
 
-Log in as user oracle, copy the file "ol7_hyperledger_dev_stop.sh" to your VM and execute:
+Log in as user oracle, copy the file "stop-hyperledgerComposer-ol7.sh" to your VM and execute:
 
 ```
-$ chmod +x ./ol7_hyperledger_dev_stop.sh
-$ ./ol7_hyperledger_dev_stop.sh
+$ chmod +x ./stop-hyperledgerComposer-ol7.sh
+$ ./stop-hyperledgerComposer-ol7.sh
 ``` 

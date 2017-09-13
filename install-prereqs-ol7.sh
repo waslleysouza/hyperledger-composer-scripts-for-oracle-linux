@@ -3,7 +3,7 @@
 #### Written by: Waslley Souza - waslley.souza@oracle.com on sept/2017
 
 if [ "$LOGNAME" != "root" ]; then
-	echo "ol7_hyperledger_setupAsRoot.sh must run as root!"
+	echo "prereqs-oraclelinux7.sh must run as root!"
 	exit
 fi
 
@@ -39,7 +39,6 @@ rm -f epel-release-latest-7.noarch.rpm
 
 echo "Updating Oracle Linux"
 yum -y groupinstall 'Development Tools'
-#yum -y install scl-utils devtoolset-3
 yum -y install wget yum-utils sshpass
 yum -y update
 
@@ -99,4 +98,22 @@ echo "Installing Git"
 yum -y install git
 git --version
 
-echo "Please, reboot and log in as user oracle."
+echo "###########################################################################################"
+echo "## NodeJS                                                                                ##"
+echo "###########################################################################################"
+
+echo "Installing NVM"
+sudo -u $NEW_USER wget -qO- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+source ~/.bashrc
+nvm --version
+
+echo "Installing NodeJS"
+sudo -u $NEW_USER nvm install --lts
+sudo -u $NEW_USER nvm use --lts
+sudo -u $NEW_USER nvm alias default 'lts/*'
+
+echo "Installing NPM"
+sudo -u $NEW_USER npm install npm@latest -g
+source ~/.bashrc
+
+echo "*** Please, reboot and log in as user oracle. ***"

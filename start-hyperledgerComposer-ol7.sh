@@ -8,13 +8,12 @@ if [ "$LOGNAME" != "oracle" ]; then
 fi
 
 echo "###########################################################################################"
-echo "## Hyperledger Fabric                                                                    ##"
+echo "## Hyperledger Composer                                                                  ##"
 echo "###########################################################################################"
 
-echo "Starting Hyperledger Fabric"
+echo "Starting Hyperledger Composer"
 cd ~/fabric-tools
 ./startFabric.sh
 
 echo "Starting Composer-Playground"
-cd ~
 composer-playground &

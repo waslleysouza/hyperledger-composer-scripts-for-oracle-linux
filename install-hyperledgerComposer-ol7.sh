@@ -1,16 +1,13 @@
 #!/bin/bash
-#### Description: Install Hyperledger Fabric
+#### Description: Install Hyperledger Composer
 #### Written by: Waslley Souza - waslley.souza@oracle.com on sept/2017
 
 if [ "$LOGNAME" != "oracle" ]; then
-	echo "hyperledger_composer_dev-oraclelinux7.sh must run as oracle!"
+	echo "Please re-run as user oracle!"
 	exit
 fi
 
 # Source: https://hyperledger.github.io/composer/installing/development-tools.html
-
-## Variables
-#declare CHANNEL_ID="mychannel"
 
 echo "###########################################################################################"
 echo "## Hyperledger Composer                                                                  ##"

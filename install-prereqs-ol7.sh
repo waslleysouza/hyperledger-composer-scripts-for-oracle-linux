@@ -1,9 +1,9 @@
 #!/bin/bash
-#### Description: Install Hyperledger Fabric
+#### Description: Install Hyperledger Composer
 #### Written by: Waslley Souza - waslley.souza@oracle.com on sept/2017
 
 if [ "$LOGNAME" != "root" ]; then
-	echo "prereqs-oraclelinux7.sh must run as root!"
+	echo "Please re-run as user root!"
 	exit
 fi
 

@@ -1,9 +1,9 @@
 #!/bin/bash
-#### Description: Start Hyperledger Fabric
+#### Description: Start Hyperledger Composer
 #### Written by: Waslley Souza - waslley.souza@oracle.com on sept/2017
 
 if [ "$LOGNAME" != "oracle" ]; then
-	echo "ol7_hyperledger_dev_start.sh must run as oracle!"
+	echo "Please re-run as user oracle!"
 	exit
 fi
 

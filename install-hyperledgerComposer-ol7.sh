@@ -13,18 +13,16 @@ echo "##########################################################################
 echo "## Hyperledger Composer                                                                  ##"
 echo "###########################################################################################"
 
-echo "Installing Fabric Composer Dev Tools"
-npm install -g composer-cli generator-hyperledger-composer composer-rest-server yo composer-playground
-
 echo "Removing all previously created Hyperledger Fabric chaincode images"
 docker kill $(docker ps -q)
-docker rm $(docker ps -aq)
-docker rmi $(docker images dev-* -q)
+#docker rm $(docker ps -aq)
+#docker rmi $(docker images dev-* -q)
 
 echo "Installing Hyperledger Composer"
-mkdir ~/fabric-tools && cd ~/fabric-tools
+mkdir -p ~/hyperledger/composer/fabric-tools && cd ~/hyperledger/composer/fabric-tools
 curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz
 tar xzf fabric-dev-servers.tar.gz
+rm -f fabric-dev-servers.tar.gz
 
 echo "Starting Hyperledger Composer"
 export FABRIC_VERSION=hlfv1
@@ -33,14 +31,13 @@ export FABRIC_VERSION=hlfv1
 ./createComposerProfile.sh
 
 echo "Installing Composer Sample Networks"
+cd ~/hyperledger/composer
 git clone https://github.com/hyperledger/composer-sample-networks.git
-cd basic-sample-network
-npm install
 
 echo "Starting Composer-Playground"
 composer-playground &
 
-wait 10
+sleep 10
 
 echo "Hyperledger was installed successfully!"
 echo "*************************************************************"

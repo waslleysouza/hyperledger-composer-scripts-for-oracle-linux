@@ -87,33 +87,23 @@ if ! grep -q "export GOPATH=*" ~/.bashrc; then
 	sed -i "$ a export GOPATH=/home/$NEW_USER/go" /home/$NEW_USER/.bashrc
 	sed -i '$ a export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' /home/$NEW_USER/.bashrc
 fi
-source /home/$NEW_USER/.bashrc
 go version
 
 echo "###########################################################################################"
-echo "## Git                                                                                   ##"
+echo "## Git, NodeJS, NPM                                                                      ##"
 echo "###########################################################################################"
 
 echo "Installing Git"
 yum -y install git
 git --version
 
-echo "###########################################################################################"
-echo "## NodeJS                                                                                ##"
-echo "###########################################################################################"
-
-echo "Installing NVM"
-sudo -u $NEW_USER wget -qO- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-source ~/.bashrc
-nvm --version
-
 echo "Installing NodeJS"
-sudo -u $NEW_USER nvm install --lts
-sudo -u $NEW_USER nvm use --lts
-sudo -u $NEW_USER nvm alias default 'lts/*'
+yum -y install nodejs
 
 echo "Installing NPM"
-sudo -u $NEW_USER npm install npm@latest -g
-source ~/.bashrc
+yum -y install npm
+
+echo "Installing Fabric Composer Dev Tools"
+npm install -g composer-cli generator-hyperledger-composer composer-rest-server yo composer-playground
 
 echo "*** Please, reboot and log in as user oracle. ***"
